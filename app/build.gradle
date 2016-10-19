@@ -10,23 +10,16 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk {
+            // this is default, you could list specific ones here
+            abiFilters 'x86', 'x86_64', 'armeabi', 'armeabi-v7a', 'arm64-v8a', 'mips', 'mips64'
+        }
         externalNativeBuild {
             cmake {
                 //DRS 20160825 - Commented 1, Added 1 - - Suggestion by Bruno Alexandre Krinski
                 //cppFlags "-frtti -fexceptions"
-                cppFlags "-std=c++11 -frtti -fexceptions"
-
-                //DRS 20160822h - Added 1.  Later replaced by 20160825
-                //abiFilters 'x86', 'x86_64', 'armeabi', 'armeabi-v7a', 'arm64-v8a'
-                //DRS 20160825 - Suggestion by Bruno Alexandre Krinski
-                abiFilters 'x86', 'x86_64', 'armeabi', 'armeabi-v7a', 'arm64-v8a', 'mips', 'mips64'
+                cppFlags "-frtti -fexceptions"
             }
-        }
-    }
-    //DRS 20160822h - Added sourceSets
-    sourceSets {
-        main {
-            jniLibs.srcDirs = ['C:\\Users\\Owner\\AndroidStudioProjects\\HelloCv\\app\\src\\main\\jniLibs']
         }
     }
     buildTypes {

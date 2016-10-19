@@ -3,7 +3,7 @@
 #include <opencv2/core.hpp>
 
 extern "C" {
-    jstring
+    JNIEXPORT jstring JNICALL
     Java_com_company_cpp_hellocv_MainActivity_stringFromJNI(
             JNIEnv *env,
             jobject /* this */) {
@@ -12,7 +12,7 @@ extern "C" {
     }
 
     //DRS 20160822c - Added native method
-    jstring
+    JNIEXPORT jstring JNICALL
     Java_com_company_cpp_hellocv_MainActivity_validate(JNIEnv *env, jobject, jlong addrGray, jlong addrRgba) {
         cv::Rect();
         cv::Mat();
